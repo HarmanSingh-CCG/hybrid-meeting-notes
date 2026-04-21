@@ -1,0 +1,53 @@
+# hybrid-meeting-notes configuration
+# Copy to config.yaml and customize. Values here override .env settings.
+
+# LLM provider: ollama | anthropic | openai | azure_openai | hybrid
+provider: ollama
+
+# Path to the markdown template used to render meeting notes
+template: ./templates/detailed_notes.md
+
+# Output directory — generated markdown + JSON land here
+output_dir: ./output
+
+# Enhancement behavior
+chunk_token_budget: 18000    # Max input tokens per LLM call; chunks if over
+chunk_overlap_tokens: 500    # Overlap between chunks for continuity
+temperature: 0.3             # Lower = more deterministic
+max_output_tokens: 4096
+
+# Provider-specific config
+ollama:
+  endpoint: http://localhost:11434
+  model: gemma3:27b
+  api_key: ~       # optional, for Caddy-proxied Ollama
+  timeout_seconds: 300
+
+anthropic:
+  model: claude-sonnet-4-6
+  max_tokens: 4096
+
+openai:
+  model: gpt-4o-mini
+
+azure_openai:
+  endpoint: https://your-resource.openai.azure.com
+  deployment: gpt-4o-mini
+  api_version: 2024-08-01-preview
+
+# Hybrid routing (only used when provider: hybrid)
+hybrid:
+  strategy: local-first       # local-first | cloud-first
+  local_provider: ollama
+  cloud_provider: anthropic
+  local_timeout_seconds: 120  # how long to wait on local before failing over
+
+# Transcript source (file | teams)
+source:
+  type: file
+
+# Metadata parsing — populate {{client}} / {{project}} in templates
+metadata:
+  # Parse meeting title with this regex. First capture group = client,
+  # second = project. Example matches "[Acme-CRM] Weekly Sync".
+  title_regex: "^\\[([^-]+)-([^\\]]+)\\]"

@@ -1,0 +1,31 @@
+services:
+  meeting-agent:
+    build: .
+    image: hybrid-meeting-notes:latest
+    env_file:
+      - .env
+    volumes:
+      - ./input:/input
+      - ./output:/output
+      - ./templates:/app/templates:ro
+    depends_on:
+      ollama:
+        condition: service_started
+        required: false
+    # Default command processes a specific file — override as needed:
+    # docker compose run --rm meeting-agent python -m meeting_agent.cli process /input/your.vtt
+    command: ["--help"]
+
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      OLLAMA_KEEP_ALIVE: "24h"
+    # To enable only when using local inference:
+    # profiles: ["ollama"]
+
+volumes:
+  ollama_data:

@@ -1,0 +1,33 @@
+Client Workshop — Acme Corp — Q3 Platform Roadmap
+Date: 2026-04-15
+Attendees: Jane Doe (Acme VP Product), Mark Smith (Acme Eng Lead), Sarah Lee (Consultant), John Park (Consultant)
+
+Jane: Thanks for making the time. We want to align on the Q3 roadmap. The board approved $240K for the platform modernization work, but we need to justify the split.
+
+Sarah: Happy to walk through what we're proposing. At a high level we see three workstreams: the legacy auth migration, the event bus replacement, and the reporting rewrite. We'd suggest roughly a 40/40/20 split of budget across those.
+
+Mark: On the event bus — are we still targeting Kafka, or did you reconsider after last quarter's cost conversation?
+
+Sarah: We reconsidered. Managed Kafka on Azure was coming in at $18K/month just for the cluster. We're now proposing NATS JetStream instead, roughly 70% cheaper at this scale, and our team has operating experience with it.
+
+Jane: That's a good call. Decision — let's go with NATS. Please add it to the proposal formally.
+
+John: For reporting, we've scoped the BI migration to Power BI Embedded. The one open question is whether you want Row-Level Security enforced on the data warehouse side or in the reporting layer. It affects licensing cost by about $40K over 18 months.
+
+Mark: We haven't decided that. Let's take that offline and come back next week.
+
+Jane: Agreed. John, can you send us a one-pager on the trade-offs so we can discuss internally?
+
+John: Will do — I'll have it to you Thursday.
+
+Jane: Other questions?
+
+Mark: Timeline — you're still targeting a September 30 GA for the auth migration?
+
+Sarah: Yes, but that depends on the Acme team having a dedicated product owner assigned by May 1. If that slips, we slip.
+
+Jane: We'll confirm Patel as the product owner by end of week. He's 80% available.
+
+Sarah: Perfect. We'll pencil that in as confirmed and flag it in our risk register.
+
+Jane: Great meeting, thanks all. Let's reconvene next Thursday same time.

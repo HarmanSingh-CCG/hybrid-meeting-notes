@@ -1,0 +1,18 @@
+# Core
+aiohttp>=3.10.0
+pydantic>=2.0
+pyyaml>=6.0
+jinja2>=3.1
+python-dotenv>=1.0.0
+click>=8.1
+
+# LLM providers — optional per provider
+anthropic>=0.45.0
+openai>=1.50.0
+
+# Teams integration — optional
+# msal>=1.28.0  # uncomment if you use the Teams transcript source
+
+# Dev / test
+pytest>=7.0
+pytest-asyncio>=0.23

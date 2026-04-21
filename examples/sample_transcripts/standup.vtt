@@ -1,0 +1,33 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:08.000
+Alex: Good morning everyone, let's do a quick standup. I'll go first.
+
+2
+00:00:08.000 --> 00:00:22.000
+Alex: Yesterday I finished the login flow refactor. Today I'm picking up the password reset bug that Priya filed last week. No blockers.
+
+3
+00:00:22.000 --> 00:00:34.000
+Priya: I shipped the analytics dashboard MVP. Today I'm going to pair with Sam on the data pipeline indexing. My blocker is waiting on database credentials for staging.
+
+4
+00:00:34.000 --> 00:00:42.000
+Alex: Priya, I'll ping IT today to unblock the credentials. Should be sorted by end of day.
+
+5
+00:00:42.000 --> 00:00:55.000
+Sam: I finished the S3 upload retry logic yesterday. Today I'm pairing with Priya and also reviewing the PR queue. No blockers personally but we should discuss the sprint goal at the end.
+
+6
+00:00:55.000 --> 00:01:05.000
+Alex: Good call. Let's hold that for the retro on Thursday. Priya, can you add it to the agenda?
+
+7
+00:01:05.000 --> 00:01:08.000
+Priya: Yep, will do.
+
+8
+00:01:08.000 --> 00:01:15.000
+Alex: Great. Anything else? Okay we're good. Thanks team.
