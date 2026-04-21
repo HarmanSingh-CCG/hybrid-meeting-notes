@@ -20,3 +20,5 @@ htmlcov/
 .ruff_cache/
 output/
 raw_transcripts/
+LINKEDIN_POST.md
+ARCHITECTURE_INFOGRAPHIC_SPEC.md
